@@ -1,0 +1,19 @@
+# Dependencies
+**/node_modules/
+
+# أسرار — لا تُرفع إلى GitHub
+.env
+.env.local
+.env.production
+
+# Build
+**/dist/
+**/build/
+
+# Logs
+npm-debug.log*
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
