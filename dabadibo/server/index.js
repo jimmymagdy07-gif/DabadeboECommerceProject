@@ -13,3 +13,4 @@ process.on("uncaughtException", (e) => {
 app.listen(PORT, () => {
   console.log(`الخادم يعمل على المنفذ ${PORT}`);
 });
+module.exports = app;
