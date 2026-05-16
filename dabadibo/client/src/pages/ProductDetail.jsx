@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../lib/api.js";
+import { mediaUrl } from "../lib/mediaUrl.js";
 import { useCart } from "../context/CartContext.jsx";
 
 export default function ProductDetail() {
@@ -51,7 +52,7 @@ export default function ProductDetail() {
           <div className="overflow-hidden rounded-[2rem] border border-daba-pink/30 bg-daba-beige">
             {images[0] ? (
               <img
-                src={images[0]}
+                src={mediaUrl(images[0])}
                 alt={product.name}
                 className="aspect-square w-full object-cover"
               />
@@ -66,7 +67,7 @@ export default function ProductDetail() {
               {images.slice(1).map((src, i) => (
                 <img
                   key={i}
-                  src={src}
+                  src={mediaUrl(src)}
                   alt=""
                   className="h-20 w-20 shrink-0 rounded-2xl object-cover ring-1 ring-daba-pink/30"
                 />

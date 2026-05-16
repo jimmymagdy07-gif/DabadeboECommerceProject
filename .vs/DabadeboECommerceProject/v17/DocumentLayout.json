@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jimmy\\DabadeboECommerceProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\asyncHandler.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\server\\middleware\\asyncHandler.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\server\\middleware\\auth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\validate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\server\\middleware\\validate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\upload.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\server\\middleware\\upload.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\db\\schema.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\server\\db\\schema.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\tailwind.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\postcss.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dabadibo\\client\\postcss.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "asyncHandler.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\asyncHandler.js",
+              "RelativeDocumentMoniker": "dabadibo\\server\\middleware\\asyncHandler.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\asyncHandler.js",
+              "RelativeToolTip": "dabadibo\\server\\middleware\\asyncHandler.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T21:09:23.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "auth.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\auth.js",
+              "RelativeDocumentMoniker": "dabadibo\\server\\middleware\\auth.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\auth.js",
+              "RelativeToolTip": "dabadibo\\server\\middleware\\auth.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T21:09:21.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "validate.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\validate.js",
+              "RelativeDocumentMoniker": "dabadibo\\server\\middleware\\validate.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\validate.js",
+              "RelativeToolTip": "dabadibo\\server\\middleware\\validate.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T21:09:18.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "upload.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\upload.js",
+              "RelativeDocumentMoniker": "dabadibo\\server\\middleware\\upload.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\middleware\\upload.js",
+              "RelativeToolTip": "dabadibo\\server\\middleware\\upload.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T21:09:12.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\src\\App.jsx",
+              "RelativeDocumentMoniker": "dabadibo\\client\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\src\\App.jsx",
+              "RelativeToolTip": "dabadibo\\client\\src\\App.jsx",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-05-14T21:08:23.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "tailwind.config.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\tailwind.config.js",
+              "RelativeDocumentMoniker": "dabadibo\\client\\tailwind.config.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\tailwind.config.js",
+              "RelativeToolTip": "dabadibo\\client\\tailwind.config.js",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T20:07:36.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "vite.config.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\vite.config.js",
+              "RelativeDocumentMoniker": "dabadibo\\client\\vite.config.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\vite.config.js",
+              "RelativeToolTip": "dabadibo\\client\\vite.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T20:07:34.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "postcss.config.js",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\postcss.config.js",
+              "RelativeDocumentMoniker": "dabadibo\\client\\postcss.config.js",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\postcss.config.js",
+              "RelativeToolTip": "dabadibo\\client\\postcss.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-14T20:07:30.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\package-lock.json",
+              "RelativeDocumentMoniker": "dabadibo\\client\\package-lock.json",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\package-lock.json",
+              "RelativeToolTip": "dabadibo\\client\\package-lock.json",
+              "ViewState": "AgIAAKsJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-14T20:07:09.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "schema.sql",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\db\\schema.sql",
+              "RelativeDocumentMoniker": "dabadibo\\server\\db\\schema.sql",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\server\\db\\schema.sql",
+              "RelativeToolTip": "dabadibo\\server\\db\\schema.sql",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-05-14T19:54:45.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\index.html",
+              "RelativeDocumentMoniker": "dabadibo\\client\\index.html",
+              "ToolTip": "C:\\Users\\jimmy\\DabadeboECommerceProject\\dabadibo\\client\\index.html",
+              "RelativeToolTip": "dabadibo\\client\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-05-14T19:54:26.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,6 @@
 npm-debug.log*
 logs/
 
-# OS
-.DS_Store
-Thumbs.db
+# صور المنتجات المرفوعة محلياً
+dabadibo/server/uploads/products/*
+!dabadibo/server/uploads/products/.gitkeep

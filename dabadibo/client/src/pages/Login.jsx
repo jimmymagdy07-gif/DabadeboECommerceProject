@@ -1,9 +1,31 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { api, setToken } from "../lib/api.js";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { api } from "../lib/api.js";
+import { useAuth } from "../context/AuthContext.jsx";
+
+function resolveAfterLogin(user, location) {
+  if (user?.role === "admin") return "/admin";
+  const sp = new URLSearchParams(location.search);
+  const raw = sp.get("redirect");
+  if (raw) {
+    try {
+      const path = decodeURIComponent(raw);
+      if (path.startsWith("/") && !path.startsWith("//") && !path.includes("://")) {
+        return path;
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  const from = location.state?.from?.pathname;
+  if (from && from.startsWith("/") && !from.startsWith("//")) return from;
+  return "/";
+}
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,8 +38,8 @@ export default function Login() {
         method: "POST",
         body: JSON.stringify({ email, password }),
       });
-      setToken(res.token);
-      navigate("/");
+      login(res.token, res.user);
+      navigate(resolveAfterLogin(res.user, location), { replace: true });
     } catch (err) {
       setError(err.message || "فشل تسجيل الدخول");
     }
@@ -65,7 +87,7 @@ export default function Login() {
         </form>
         <p className="mt-4 text-center text-sm text-stone-600">
           ليس لديك حساب؟{" "}
-          <Link className="font-bold text-daba-gold" to="/register">
+          <Link className="font-bold text-daba-gold" to={`/register${location.search}`}>
             سجّل الآن
           </Link>
         </p>

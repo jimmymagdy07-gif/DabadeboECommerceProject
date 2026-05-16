@@ -1,11 +1,24 @@
 import { Router } from "express";
 import { pool } from "../db/pool.js";
 import { authenticateToken, isAdmin } from "../middleware/auth.js";
+import { asyncHandler } from "../middleware/asyncHandler.js";
+import { validateProductBody } from "../middleware/validate.js";
+import { HttpError } from "../util/HttpError.js";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  try {
+router.param("id", (req, res, next, id) => {
+  const n = parseInt(id, 10);
+  if (Number.isNaN(n) || n < 1) {
+    return res.status(400).json({ message: "معرف منتج غير صالح" });
+  }
+  req.productId = n;
+  next();
+});
+
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
     const {
       category,
       featured,
@@ -24,20 +37,29 @@ router.get("/", async (req, res) => {
     const params = [];
     let p = 1;
 
-    if (min_price !== undefined && min_price !== "" && !Number.isNaN(Number(min_price))) {
+    if (
+      min_price !== undefined &&
+      min_price !== "" &&
+      !Number.isNaN(Number(min_price))
+    ) {
       conditions.push(`p.price >= $${p}`);
       params.push(Number(min_price));
       p++;
     }
-    if (max_price !== undefined && max_price !== "" && !Number.isNaN(Number(max_price))) {
+    if (
+      max_price !== undefined &&
+      max_price !== "" &&
+      !Number.isNaN(Number(max_price))
+    ) {
       conditions.push(`p.price <= $${p}`);
       params.push(Number(max_price));
       p++;
     }
 
     if (category) {
+      const cat = String(category).slice(0, 120);
       conditions.push(`(c.slug = $${p} OR c.id::text = $${p})`);
-      params.push(String(category));
+      params.push(cat);
       p++;
     }
 
@@ -46,10 +68,8 @@ router.get("/", async (req, res) => {
     }
 
     if (search && String(search).trim()) {
-      conditions.push(
-        `(p.name ILIKE $${p} OR p.description ILIKE $${p})`
-      );
-      params.push(`%${String(search).trim()}%`);
+      conditions.push(`(p.name ILIKE $${p} OR p.description ILIKE $${p})`);
+      params.push(`%${String(search).trim().slice(0, 200)}%`);
       p++;
     }
 
@@ -82,24 +102,21 @@ router.get("/", async (req, res) => {
       total,
       totalPages: Math.ceil(total / limitNum) || 1,
     });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "خطأ في الخادم" });
-  }
-});
+  })
+);
 
-router.get("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
     const productResult = await pool.query(
       `SELECT p.*, c.name AS category_name, c.slug AS category_slug
        FROM products p
        JOIN categories c ON c.id = p.category_id
        WHERE p.id = $1`,
-      [id]
+      [req.productId]
     );
     if (!productResult.rows.length) {
-      return res.status(404).json({ message: "المنتج غير موجود" });
+      throw new HttpError(404, "المنتج غير موجود");
     }
 
     const reviewsResult = await pool.query(
@@ -109,34 +126,22 @@ router.get("/:id", async (req, res) => {
        JOIN users u ON u.id = r.user_id
        WHERE r.product_id = $1
        ORDER BY r.created_at DESC`,
-      [id]
+      [req.productId]
     );
 
     res.json({
       product: productResult.rows[0],
       reviews: reviewsResult.rows,
     });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "خطأ في الخادم" });
-  }
-});
+  })
+);
 
-router.post("/", authenticateToken, isAdmin, async (req, res) => {
-  try {
-    const {
-      name,
-      description,
-      price,
-      old_price,
-      category_id,
-      images,
-      stock,
-      is_featured,
-      rating,
-      reviews_count,
-    } = req.body;
-
+router.post(
+  "/",
+  authenticateToken,
+  isAdmin,
+  asyncHandler(async (req, res) => {
+    const v = validateProductBody(req.body);
     const result = await pool.query(
       `INSERT INTO products (
         name, description, price, old_price, category_id, images, stock,
@@ -144,94 +149,77 @@ router.post("/", authenticateToken, isAdmin, async (req, res) => {
       ) VALUES ($1,$2,$3,$4,$5,$6::text[],$7,$8,$9,$10)
       RETURNING *`,
       [
-        name,
-        description ?? "",
-        price,
-        old_price ?? null,
-        category_id,
-        Array.isArray(images) ? images : [],
-        stock ?? 0,
-        Boolean(is_featured),
-        rating ?? 0,
-        reviews_count ?? 0,
+        v.name,
+        v.description,
+        v.price,
+        v.old_price,
+        v.category_id,
+        v.images,
+        v.stock,
+        v.is_featured,
+        v.rating,
+        v.reviews_count,
       ]
     );
     res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "خطأ في الخادم" });
-  }
-});
+  })
+);
 
-router.put("/:id", authenticateToken, isAdmin, async (req, res) => {
-  try {
-    const { id } = req.params;
-    const {
-      name,
-      description,
-      price,
-      old_price,
-      category_id,
-      images,
-      stock,
-      is_featured,
-      rating,
-      reviews_count,
-    } = req.body;
-
+router.put(
+  "/:id",
+  authenticateToken,
+  isAdmin,
+  asyncHandler(async (req, res) => {
+    const v = validateProductBody(req.body);
     const result = await pool.query(
       `UPDATE products SET
-        name = COALESCE($1, name),
-        description = COALESCE($2, description),
-        price = COALESCE($3, price),
+        name = $1,
+        description = $2,
+        price = $3,
         old_price = $4,
-        category_id = COALESCE($5, category_id),
-        images = COALESCE($6::text[], images),
-        stock = COALESCE($7, stock),
-        is_featured = COALESCE($8, is_featured),
-        rating = COALESCE($9, rating),
-        reviews_count = COALESCE($10, reviews_count)
+        category_id = $5,
+        images = $6::text[],
+        stock = $7,
+        is_featured = $8,
+        rating = $9,
+        reviews_count = $10
       WHERE id = $11
       RETURNING *`,
       [
-        name ?? null,
-        description ?? null,
-        price ?? null,
-        old_price,
-        category_id ?? null,
-        Array.isArray(images) ? images : null,
-        stock ?? null,
-        is_featured ?? null,
-        rating ?? null,
-        reviews_count ?? null,
-        id,
+        v.name,
+        v.description,
+        v.price,
+        v.old_price,
+        v.category_id,
+        v.images,
+        v.stock,
+        v.is_featured,
+        v.rating,
+        v.reviews_count,
+        req.productId,
       ]
     );
     if (!result.rows.length) {
-      return res.status(404).json({ message: "المنتج غير موجود" });
+      throw new HttpError(404, "المنتج غير موجود");
     }
     res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "خطأ في الخادم" });
-  }
-});
+  })
+);
 
-router.delete("/:id", authenticateToken, isAdmin, async (req, res) => {
-  try {
-    const { id } = req.params;
+router.delete(
+  "/:id",
+  authenticateToken,
+  isAdmin,
+  asyncHandler(async (req, res) => {
     const result = await pool.query(
       "DELETE FROM products WHERE id = $1 RETURNING id",
-      [id]
+      [req.productId]
     );
     if (!result.rows.length) {
-      return res.status(404).json({ message: "المنتج غير موجود" });
+      throw new HttpError(404, "المنتج غير موجود");
     }
     res.json({ message: "تم الحذف" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "خطأ في الخادم" });
-  }
-});
+  })
+);
 
 export default router;

@@ -1,9 +1,29 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { api, setToken } from "../lib/api.js";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { api } from "../lib/api.js";
+import { useAuth } from "../context/AuthContext.jsx";
+
+function resolveAfterRegister(user, location) {
+  if (user?.role === "admin") return "/admin";
+  const sp = new URLSearchParams(location.search);
+  const raw = sp.get("redirect");
+  if (raw) {
+    try {
+      const path = decodeURIComponent(raw);
+      if (path.startsWith("/") && !path.startsWith("//") && !path.includes("://")) {
+        return path;
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  return "/";
+}
 
 export default function Register() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -18,8 +38,8 @@ export default function Register() {
         method: "POST",
         body: JSON.stringify({ name, email, password, phone }),
       });
-      setToken(res.token);
-      navigate("/");
+      login(res.token, res.user);
+      navigate(resolveAfterRegister(res.user, location), { replace: true });
     } catch (err) {
       setError(err.message || "تعذر إنشاء الحساب");
     }
@@ -89,7 +109,7 @@ export default function Register() {
         </form>
         <p className="mt-4 text-center text-sm text-stone-600">
           لديك حساب؟{" "}
-          <Link className="font-bold text-daba-gold" to="/login">
+          <Link className="font-bold text-daba-gold" to={`/login${location.search}`}>
             سجّل الدخول
           </Link>
         </p>

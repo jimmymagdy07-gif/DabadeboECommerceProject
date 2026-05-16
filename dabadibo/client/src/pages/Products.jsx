@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { api } from "../lib/api.js";
+import { mediaUrl } from "../lib/mediaUrl.js";
 import { useCart } from "../context/CartContext.jsx";
 
 function useDebounced(value, ms = 400) {
@@ -180,7 +181,7 @@ export default function Products() {
                   <div className="aspect-square bg-daba-beige">
                     {img ? (
                       <img
-                        src={img}
+                        src={mediaUrl(img)}
                         alt={p.name}
                         className="h-full w-full object-cover"
                       />

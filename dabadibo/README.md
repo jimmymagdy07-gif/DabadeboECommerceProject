@@ -75,6 +75,20 @@ npm run dev
 
 يمكنك أيضاً إنشاء حساب جديد من صفحة التسجيل.
 
+## الأمان والاختبارات
+
+- الاستعلامات إلى PostgreSQL تستخدم **معاملات مُحضَّرة** فقط (تخفيف SQL Injection).
+- **Helmet** لرؤوس HTTP أساسية؛ حجم جسم JSON محدود؛ تعطيل `X-Powered-By`.
+- التحقق من المدخلات (طول، بريد، أرقام، روابط `javascript:` / `data:` للصور).
+- مسارات الإدارة والرفع تتطلب **JWT + دور admin** في الـ API.
+- الواجهة: `/admin` محمية بـ `AdminLayout`؛ `/checkout` بـ `RequireAuth`.
+- اختبارات آلية خفيفة: من مجلد `server/` نفّذ `npm test` (يتطلب `JWT_SECRET` أو يستخدم قيمة افتراضية للاختبار).
+
+## رفع الصور
+
+- المدير يرفع من لوحة المنتجات؛ تُحفظ الملفات تحت `server/uploads/products/` وتُعرض عبر `http://localhost:5000/uploads/...`.
+- في قاعدة البيانات تُخزَّن المسارات في مصفوفة `images` (مثل `/uploads/products/xxx.jpg`).
+
 ---
 
 ## روابط الصفحات
@@ -86,18 +100,25 @@ npm run dev
 | تفاصيل منتج   | http://localhost:3000/products/:id |
 | صانع الهدايا  | http://localhost:3000/gift-builder |
 | السلة         | http://localhost:3000/cart |
+| **إتمام الطلب (يتطلب دخول)** | http://localhost:3000/checkout |
 | تسجيل الدخول  | http://localhost:3000/login |
 | التسجيل      | http://localhost:3000/register |
+| **لوحة التحكم (مدير فقط)** | http://localhost:3000/admin |
+| إدارة المنتجات | http://localhost:3000/admin/products |
+| الطلبات (مدير) | http://localhost:3000/admin/orders |
+| الفئات (مدير) | http://localhost:3000/admin/categories |
 
 ---
 
 ## API مختصرة
 
 - `GET /api/health`
-- `GET /api/categories`
+- `GET /api/categories` — للجميع
+- `POST` / `PUT /:id` / `DELETE /:id` على `/api/categories` — **admin** فقط
 - `GET /api/products` — فلاتر: `category`, `featured`, `search`, `min_price`, `max_price`, `page`, `limit`
 - `GET /api/products/:id`
 - `POST /api/auth/register` — `POST /api/auth/login` — `GET /api/auth/me` (مع Bearer Token)
+- `POST /api/uploads/product-images` — **admin**، حقول `files` (multipart)
 - `POST /api/orders` — يتطلب تسجيل دخول
 - `GET /api/orders/my` — `GET /api/orders/:id` — `PUT /api/orders/:id/status` (للمدير)
 

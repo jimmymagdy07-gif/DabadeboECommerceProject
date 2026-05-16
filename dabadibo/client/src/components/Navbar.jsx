@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const linkClass = ({ isActive }) =>
   `rounded-full px-3 py-1.5 text-sm transition ${
@@ -10,6 +11,7 @@ const linkClass = ({ isActive }) =>
 
 export default function Navbar() {
   const { cartCount } = useCart();
+  const { user, isAdmin, logout } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-daba-pink/30 bg-white/90 backdrop-blur-md">
@@ -33,9 +35,24 @@ export default function Navbar() {
           <NavLink to="/gift-builder" className={linkClass}>
             صانع الهدايا
           </NavLink>
-          <NavLink to="/login" className={linkClass}>
-            دخول
-          </NavLink>
+          {isAdmin && (
+            <NavLink to="/admin" className={linkClass}>
+              لوحة التحكم
+            </NavLink>
+          )}
+          {user ? (
+            <button
+              type="button"
+              onClick={logout}
+              className="rounded-full px-3 py-1.5 text-sm font-semibold text-stone-700 hover:bg-daba-beige"
+            >
+              خروج
+            </button>
+          ) : (
+            <NavLink to="/login" className={linkClass}>
+              دخول
+            </NavLink>
+          )}
           <NavLink
             to="/cart"
             className="relative ms-1 inline-flex items-center gap-1 rounded-full border border-daba-gold/50 bg-daba-beige px-3 py-1.5 text-sm font-semibold text-stone-800 shadow-sm"

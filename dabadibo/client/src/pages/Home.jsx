@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../lib/api.js";
+import { mediaUrl } from "../lib/mediaUrl.js";
 
 function ProductCard({ product }) {
   const img = product.images?.[0];
@@ -12,7 +13,7 @@ function ProductCard({ product }) {
       <div className="aspect-square overflow-hidden bg-daba-beige">
         {img ? (
           <img
-            src={img}
+            src={mediaUrl(img)}
             alt={product.name}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />

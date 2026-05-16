@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../lib/api.js";
+import { mediaUrl } from "../lib/mediaUrl.js";
 import { useCart } from "../context/CartContext.jsx";
 
 const sizes = [
@@ -124,7 +125,7 @@ export default function GiftBuilder() {
                   >
                     <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-white">
                       {img ? (
-                        <img src={img} alt="" className="h-full w-full object-cover" />
+                        <img src={mediaUrl(img)} alt="" className="h-full w-full object-cover" />
                       ) : (
                         <div className="flex h-full items-center justify-center">🎁</div>
                       )}
